@@ -52,8 +52,6 @@ PROVIDE THE UPDATED LINKS
 
   Firstly, which starting positions are played more often and which responses are played more often. Secondly, we will pay attention if any optimal or preferred strategies exist which lead more often to the win. Finally, we will study if there are any defensive strategies that consistenly lead to draw. Furthermore we hope to see some Outcome/Game state clusters.
 
-TODO
-
 ## Final Submission
 
 * Make sure that you pushed your GitHub repository and not just committed it locally.
