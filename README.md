@@ -236,7 +236,7 @@ This second analysis, also using heat map - style image maps to mark zones of in
 
 # [Interactive Network Visualization App](https://www.figma.com/proto/jSr6gSc9NbPHnQbn6OmyHz/CNN?node-id=307-236&node-type=frame&t=adyUsfZCEEqPLl7m-1&scaling=contain&content-scaling=fixed&page-id=0%3A1)
 
-![Interactive App Screenshots](readme_images/SamplePagesApp.png)
+![Interactive App Screenshots](proj2/readme_images/SamplePagesApp.png)
 
 Try it out by clicking the title link or alternatively watch the [demo here](https://drive.google.com/file/d/19zLND2iCiSGr1TX8LqmdLVinthPf9KhU/view?usp=sharing)
 
@@ -305,13 +305,13 @@ We conducted two complementary experiments:
 
 In our initial heatmap analysis, we discovered a concerning behavior:
 
-![Heatmap Results](readme_images/heatmap_results.png)
+![Heatmap Results](proj2/readme_images/heatmap_results.png)
 
 The American bulldog image (right) revealed significant model sensitivity to the area above the dog's head - a region containing no dog features. This suggests the model might be using background context rather than just dog-specific features for classification.
 
 ### 2. Patch Size Impact on Feature Detection
 
-![Patch Size Impact](readme_images/patch_size.png)
+![Patch Size Impact](proj2/readme_images/patch_size.png)
 
 During our initial implementation, we discovered an important methodological insight regarding patch size selection. When using fine-grained patches (10px on 128x128 images), our sensitivity analysis highlighted areas outside the dog as important for classification. However, increasing the patch size to 20-26px revealed more semantically meaningful features, particularly anatomical features like ears and facial structures. This suggests our model's decision-making process relies more heavily on larger anatomical features rather than fine textures or small details - an observation that aligns with how human experts typically identify dogs. This finding not only helped us optimize our visualization method but also provided valuable insights into how our model processes visual information. Our findings align with Brendel and Bethge (2019) "Approximating CNNs with Bag-of-local-Features models works surprisingly well on ImageNet," who demonstrated that CNNs tend to rely on larger features rather than fine-grained details. Similarly, Geirhos et al. (2019) "ImageNet-trained CNNs are biased towards texture; increasing shape bias improves accuracy and robustness" found that standard CNNs show a preference for processing larger shape features over local textures.
 
@@ -336,7 +336,7 @@ Our detailed analysis of different occlusion colors across network layers reveal
 | White | Nose      | 0.332 ± 0.010 | 0.723 ± 0.144 |
 | White | Random    | 0.325 ± 0.093 | 0.755 ± 0.452 |
 
-![sensitivity_layers](readme_images/sensitivity_measures_layers.png)
+![sensitivity_layers](proj2/readme_images/sensitivity_measures_layers.png)
 
 The bar chart visualizes the sensitivity measures for different occlusion colors (black, gray, white) at two network layers (Layer 5 and Layer 7) across four locations (right eye, left eye, nose, random).
 Key interpretations:
@@ -353,9 +353,9 @@ In summary, the bar chart highlights the model's heightened sensitivity in deepe
 The progression of our analysis can be seen in these examples:
 
 Examples of different occlusion types:
-![Black Occlusion](readme_images/occlusion_grid_black_american_bulldog_183.png)
-![Gray Occlusion](readme_images/occlusion_grid_gray_english_setter_111.png)
-![White Occlusion](readme_images/occlusion_grid_white_pug_145.png)
+![Black Occlusion](proj2/readme_images/occlusion_grid_black_american_bulldog_183.png)
+![Gray Occlusion](proj2/readme_images/occlusion_grid_gray_english_setter_111.png)
+![White Occlusion](proj2/readme_images/occlusion_grid_white_pug_145.png)
 
 This layer-specific behavior suggests our model develops increasingly complex but potentially less stable feature processing in deeper layers. Particularly noteworthy is the unexpected high sensitivity to gray occlusions in random locations at Layer 7. While one might expect extreme values (black/white) to cause more disruption, gray (neutral color) occlusions led to the largest sensitivity scores. This unexpected behavior raises potential concerns:
 
